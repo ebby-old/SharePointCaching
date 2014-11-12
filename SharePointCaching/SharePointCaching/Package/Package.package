@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="1e1cd507-213e-4cdc-94e3-264e0d36e9db" solutionId="1e1cd507-213e-4cdc-94e3-264e0d36e9db" resetWebServer="false" sharePointProductVersion="15.0" name="SharePointCaching" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="5b3f991e-bbd1-4962-b8e9-dcc8dd8b23e3" />
+  </features>
+</package>

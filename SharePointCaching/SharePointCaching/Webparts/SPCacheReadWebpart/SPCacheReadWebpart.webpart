@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="SharePointCaching.Webparts.SPCacheReadWebpart.SPCacheReadWebpart, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">SharePointCaching - SP Cache Read Webpart</property>
+        <property name="Description" type="string">Demos that the cache values can be read from another location in SharePoint</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

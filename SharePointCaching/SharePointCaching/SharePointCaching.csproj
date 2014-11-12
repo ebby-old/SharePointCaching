@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BA2C51D-60C4-4C75-B0F5-0746A47719F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharePointCaching</RootNamespace>
+    <AssemblyName>SharePointCaching</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\SPCacheOperations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webparts\SPCacheOperationsWebpart\SPCacheOperationsWebpart.cs" />
+    <Compile Include="Webparts\SPCacheOperationsWebpart\SPCacheOperationsWebpartUserControl.ascx.cs">
+      <DependentUpon>SPCacheOperationsWebpartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\SPCacheOperationsWebpart\SPCacheOperationsWebpartUserControl.ascx.designer.cs">
+      <DependentUpon>SPCacheOperationsWebpartUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\SPCacheReadWebpart\SPCacheReadWebpart.cs" />
+    <Compile Include="Webparts\SPCacheReadWebpart\SPCacheReadWebpartUserControl.ascx.cs">
+      <DependentUpon>SPCacheReadWebpartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\SPCacheReadWebpart\SPCacheReadWebpartUserControl.ascx.designer.cs">
+      <DependentUpon>SPCacheReadWebpartUserControl.ascx.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\SPCacheDemo\SPCacheDemo.feature">
+      <FeatureId>{5b3f991e-bbd1-4962-b8e9-dcc8dd8b23e3}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{1e1cd507-213e-4cdc-94e3-264e0d36e9db}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Webparts\SPCacheOperationsWebpart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d5ff4f0b-765f-4654-b4e3-0dddbd9d03c8}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\SPCacheOperationsWebpart\SPCacheOperationsWebpart.webpart" />
+    <None Include="Webparts\SPCacheReadWebpart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3cf5f9a5-d422-4d0e-80cd-560650c927f3}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\SPCacheReadWebpart\SPCacheReadWebpart.webpart" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\SPCacheDemo\SPCacheDemo.Template.xml">
+      <DependentUpon>SPCacheDemo.feature</DependentUpon>
+    </Content>
+    <Content Include="Webparts\SPCacheOperationsWebpart\Elements.xml" />
+    <Content Include="Webparts\SPCacheOperationsWebpart\SPCacheOperationsWebpartUserControl.ascx" />
+    <Content Include="Webparts\SPCacheReadWebpart\Elements.xml" />
+    <Content Include="Webparts\SPCacheReadWebpart\SPCacheReadWebpartUserControl.ascx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>
